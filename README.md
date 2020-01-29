@@ -4,8 +4,9 @@ The rep has the control system for the 2-axis joystick used in [Mathis et al, 20
 # Essential Hardware:
 
 - Joystick base, Digi-Key, Cat #679-2501-ND
-- Joystick handle; replace d-pad (removed by screw) with any handle you prefer
+- Joystick handle; replace d-pad (removed by screw) with any handle you prefer (the grip point was 2 mm in diameter)
 - Joystick spring; you may need to exchange the base spring with a lower stiffness spring (should be independently verified)
+   - Note, we modified the joystick base to reduce the force required to move the joystick (0.1-0.2 N from 4N)
 - NI-DAQ card, PCI-e6251 National Instruments, Cat # NI PCIe-6251 – 779512-01
 - LabView 2013 or newer, National Instruments  http://www.ni.com
 
@@ -13,7 +14,7 @@ The rep has the control system for the 2-axis joystick used in [Mathis et al, 20
 
 - our custom LabView VIs
 
-The main file is "Pull Behavior...". The other vi's are for grabbing frames from another source, i.e. 2-photon.  There are three output files (reward TTLs, a "trial start" TTL, and the full X and Y joystick trajectory + lick signal + frame count).You will see I utilize the NI-DAQmx Tasks for this code; screenshots in the media folder. 
+The main file is "Pull Behavior...". The other vi's are for grabbing frames from another source, i.e. 2-photon. They need to be included for the code to run.  There are three output files (reward TTLs, a "trial start" TTL, and the full X and Y joystick trajectory + lick signal + frame count). You need to set up NIDAQ tasks, as shown in the media folder. 
 
 # Experimental Settings File:
 
@@ -25,9 +26,11 @@ The experimental parameters is a text file that you load, so you can customize t
 
 # Getting Started:
 
-Based on how you build the joystick, your resting voltage may differ. Each rig should be measured and calibarated (i.e. what voltage delta = X mm distance). 
+Build the joystick. Wire the joystick as specified by the manufacturer; i.e 5 V power, ground, and X, and Y go into analog inputs in the NIDAQ card. Be sure you have a clean 5V signal. Test output in NI-MAX.
 
-The above values are a good starting point, assuming the voltage rests at 2.55.  Set for your rig as needed. There is a exp array that is on the front screen of the vi so you can figure out which values are which, etc, but it doesn't match the orde rin the text file, thus I highlighted important variables. To note, this demo assumes the joystick rests at 2.55; and every .05 is 1 mm. 
+Based on how you build the joystick, your resting voltage may differ. Each rig should be measured and calibrated  (i.e. what voltage delta = X mm distance). 
+
+The above values (expt settings file) are a good starting point assuming the voltage rests at 2.55.  Set for your rig as needed. There is a exp array that is on the front screen of the vi so you can figure out which values are which, etc, but it doesn't match the order in the text file, thus I highlighted important variables. To note, this demo assumes the joystick rests at 2.55; and every .05 is 1 mm. 
 
 # Citation:
 
