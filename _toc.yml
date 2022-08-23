@@ -1,0 +1,11 @@
+format: jb-book
+root: README
+parts:
+- caption: Documentation
+  chapters:
+  - file: docs/UseOverviewGuide
+  - file: docs/installation
+- caption: Tutorials
+  chapters:
+  - file: docs/Tutorial_rig1
+  - file: docs/Tutorial_rig5
